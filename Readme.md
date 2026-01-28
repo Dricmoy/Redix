@@ -16,7 +16,7 @@ Its primary goals are simplicity, speed, and learnability, while maintaining a c
 
 ## Optional / Future Enhancements
 
-- **Key expiration / TTL system
-- **Replication / clustering
-- **Async I/O for higher performance
-- **Metrics / monitoring endpoints
+- Key expiration / TTL system
+- Replication / clustering
+- Async I/O for higher performance
+- Metrics / monitoring endpoints
