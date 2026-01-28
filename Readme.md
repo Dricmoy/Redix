@@ -13,3 +13,10 @@ Its primary goals are simplicity, speed, and learnability, while maintaining a c
 - **Small, readable C++ codebase:** Easy to maintain and extend
 
 ![](assets/system_architechture_visualization-v1.png)
+
+## Optional / Future Enhancements
+
+- **Key expiration / TTL system
+- **Replication / clustering
+- **Async I/O for higher performance
+- **Metrics / monitoring endpoints
