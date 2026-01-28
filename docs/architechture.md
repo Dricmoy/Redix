@@ -1,9 +1,7 @@
 # RediX Architecture (High-Level Overview)
 
-RediX is a lightweight, Redis-inspired in-memory key–value database written in C++.  
+RediX is a lightweight, Redis-inspired in-memory key–value database written in C++.
 Its primary goals are simplicity, speed, and learnability, while maintaining a clean modular design.
-
----
 
 ## Core Goals
 
@@ -13,3 +11,5 @@ Its primary goals are simplicity, speed, and learnability, while maintaining a c
 - **Append-Only File (AOF) persistence:** Ensures crash recovery
 - **RESP (Redis Serialization Protocol) compatible:** Enables interoperability with Redis clients
 - **Small, readable C++ codebase:** Easy to maintain and extend
+
+![](assets/system_architechture_visualization-v1.png)
