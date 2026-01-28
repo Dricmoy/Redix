@@ -1,0 +1,19 @@
+# Build directories
+build/
+
+# Data files
+data/
+
+# Compiled object files
+*.o
+*.a
+*.so
+
+# Logs
+*.log
+
+# IDE / editor configs
+.vscode/
+.idea/
+*.swp
+
