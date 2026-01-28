@@ -1,0 +1,18 @@
+# Base image
+FROM ubuntu:24.04
+
+# Install only runtime dependencies
+RUN apt-get update && apt-get install -y \
+    cmake \
+    g++ \
+    make \
+    && apt-get clean
+
+# Set workdir
+WORKDIR /app
+
+# Copy project files
+COPY . .
+
+# Default build command
+CMD ["bash", "-c", "mkdir -p build/Release && cd build/Release && cmake -DCMAKE_BUILD_TYPE=Release ../.. && make -j$(nproc)"]
