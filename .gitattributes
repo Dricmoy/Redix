@@ -1,0 +1,11 @@
+# Force LF for text files
+* text=auto eol=lf
+*.cpp text
+*.h text
+*.hpp text
+*.c text
+*.txt text
+*.md text
+*.json text
+*.yml text
+*.yaml text
