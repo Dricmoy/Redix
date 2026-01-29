@@ -18,15 +18,26 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y cmake g++ make
+
       - name: Build
         run: |
           mkdir -p build/${{ matrix.build-type }}
           cd build/${{ matrix.build-type }}
           cmake -DCMAKE_BUILD_TYPE=${{ matrix.build-type }} ../..
           make -j$(nproc)
+
       - name: Run Tests
         run: |
           cd build/Debug
+          ctest --output-on-failure
+
+      - name: Build with Sanitizers
+        run: |
+          mkdir -p build/Sanitize
+          cd build/Sanitize
+          cmake -DCMAKE_BUILD_TYPE=Debug -DSANITIZE=ON ../..
+          make -j$(nproc)
           ctest --output-on-failure
