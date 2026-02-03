@@ -1,24 +1,13 @@
-# Base image
+# Base dev image
 FROM ubuntu:24.04
 
-# Install dependencies
-RUN apt-get update && apt-get install -y \
-    cmake \
-    g++ \
-    make \
-    clang-format \
-    clang-tidy \
-    cppcheck \
-    git \
-    python3 \
-    python3-pip \
-    && apt-get clean
+# Install dev dependencies
+RUN apt-get update && \
+    apt-get install -y build-essential cmake g++ make git clang-format clang-tidy cppcheck lldb sudo python3 python3-pip ninja-build && \
+    rm -rf /var/lib/apt/lists/*
 
-# Set workdir
 WORKDIR /app
-
-# Copy project files
 COPY . .
 
-# Default command: build and run pre-commit
-CMD ["bash"]
+# Default entrypoint: launch dev menu
+CMD ["./scripts/dev_menu.sh"]

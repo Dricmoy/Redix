@@ -1,18 +1,13 @@
-# Base image
+# Base prod image
 FROM ubuntu:24.04
 
-# Install only runtime dependencies
-RUN apt-get update && apt-get install -y \
-    cmake \
-    g++ \
-    make \
-    && apt-get clean
+# Only runtime dependencies
+RUN apt-get update && \
+    apt-get install -y libstdc++6 && \
+    rm -rf /var/lib/apt/lists/*
 
-# Set workdir
 WORKDIR /app
+COPY --from=redix-dev:latest /app/build/Release ./build/Release
 
-# Copy project files
-COPY . .
-
-# Default build command
-CMD ["bash", "-c", "mkdir -p build/Release && cd build/Release && cmake -DCMAKE_BUILD_TYPE=Release ../.. && make -j$(nproc)"]
+# Default entrypoint: run RediX binary
+CMD ["./build/Release/RediX"]
